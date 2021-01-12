@@ -14,6 +14,7 @@ const createServer = ({ typeDefs, resolvers }) => {
     resolvers,
     context: { pubSub },
     playground: true,
+    introspection: true,
   });
   server.listen(process.env.PORT || 4000).then(({ url }) => {
     console.log(`Server running on ${url}`);
