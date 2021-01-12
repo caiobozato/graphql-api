@@ -9,7 +9,12 @@ const createServer = ({ typeDefs, resolvers }) => {
   });
 
   const pubSub = new PubSub();
-  const server = new ApolloServer({ typeDefs, resolvers, context: { pubSub } });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: { pubSub },
+    playground: true,
+  });
   server.listen(process.env.PORT || 4000).then(({ url }) => {
     console.log(`Server running on ${url}`);
   });
